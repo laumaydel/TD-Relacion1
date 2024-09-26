@@ -32,9 +32,7 @@ de un año o después. Sabiendo que los gastos de una embarazada son:
 • Gastos derivados del parto (ingreso en clínica): 3000 euros.
 ¿Qué le recomendaría si quiere evaluar el coste que tendrá el primer año?
 
-\newpage
-
-**Resolución del problema:**
+**Desglose de los datos:**
 
 - Decisor: Ana (embarazada)
 - Estados de la naturaleza (2):
@@ -49,7 +47,9 @@ de un año o después. Sabiendo que los gastos de una embarazada son:
         Curadita:60€/mes solo
         
         Preventiva:40€/mes + ingreso
-        
+\newpage    
+
+**Resolución del problema:**
 ```{r}
 # Calcular los valores de la matriz
 
