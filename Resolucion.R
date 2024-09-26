@@ -71,32 +71,3 @@ tb03= crea.tablaX(c(24,19,10,16,
 criterio.Todos(tb03,favorable = T)
 
 
-## Problema 4 -----
-
-# Decisior: Ana
-#Estados de la naturaleza: Antes de 1 año // 2 años
-#Alternativas: 3 distintas (Security,Curadita,Preventiva )
-m11= 30*12
-m12=
-m21=
-m22=
-m31=
-m32=
-
-tb04= crea.tablaX(c(24,19,10,16,
-                    22,22,23,20,
-                    23,23,21,15,
-                    25,24,18,14),numalternativas = 4,numestados = 4)
-
-## Problema 5 -----
-
-#Estado naruraleza: 
-  # e1= comer,copas, taxi
-  # e2= comer, no copas y andando
-
-#Alternativas: Son 3 distintios restaurantes
-
-#e1:
-
-m11=60*2+5
-m21=30*2+
