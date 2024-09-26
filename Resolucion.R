@@ -69,5 +69,3 @@ tb03= crea.tablaX(c(24,19,10,16,
                     23,23,21,15,
                     25,24,18,14),numalternativas = 4,numestados = 4)
 criterio.Todos(tb03,favorable = T)
-
-

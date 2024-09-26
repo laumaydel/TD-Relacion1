@@ -1,0 +1,91 @@
+---
+title: "Problema 4"
+author: "Laura Mayorgas del Castillo"
+date: "2024-09-26"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("teoriadecision_funciones_incertidumbre.R")
+```
+
+## PROBLEMA 4
+
+Ana está estudiando la posibilidad de darse de alta en un seguro médico privado. Se ha
+informado sobre varias aseguradoras, que le han dado los siguientes informes:
+
+• Con Security debe pagar una cuota mensual de 30 euros, pero no cubre todos los gastos
+sanitarios hasta que no ha pasado un año y, hasta entonces sólo cubre la mitad.
+
+• Con Curadita tiene la posibilidad de cubrir todos los gastos desde el principio, pero eso supone
+que debe pagar una cuota de 60 euros al mes.
+
+• Con Preventiva s.a. debe pagar una cuota mensual de 40 euros, lo que le cubrirá todos los
+gastos exceptuando el ingreso en clínica.
+
+Ana quiere tener un bebé cuanto antes y cree que puede quedarse embarazada y dar a luz o antes
+de un año o después. Sabiendo que los gastos de una embarazada son:
+
+• Visitas médicas, análisis, ecografías, etc.: 600 euros.
+
+• Gastos derivados del parto (ingreso en clínica): 3000 euros.
+¿Qué le recomendaría si quiere evaluar el coste que tendrá el primer año?
+
+\newpage
+
+**Resolución del problema:**
+
+- Decisor: Ana (embarazada)
+- Estados de la naturaleza (2):
+
+        Antes de 1 año
+        2 años
+        
+- Alternativas(3): 
+
+        Security: 30€/mes + sanitarios si (< 1 año), cc solo mitad
+        
+        Curadita:60€/mes solo
+        
+        Preventiva:40€/mes + ingreso
+        
+```{r}
+# Calcular los valores de la matriz
+
+## Precios en Security
+m11= 30*12+(600+3000)/2 # Si es en mmenos de 1 año
+m12= 30*12 #Más de 1 año
+
+## Precios en Security
+m21= 60*12
+m22= 60*12
+
+m31= 40*12+3000
+m32=40*12
+```
+Una vez calculado los valores para cada una de las alternativas en los 2 posibles estados, aplicamos los criterios. 
+
+```{r}
+tb04= crea.tablaX(c(m11,m12,
+                    m21,m22,
+                    m31,m32),numalternativas = 3,numestados = 2)
+knitr::kable(tb04)
+
+sol4=criterio.Todos(tb04,favorable = F)
+knitr::kable(sol4)
+```
+
+En definitiva podemos ver que la alternativa más repetida por los distintos criterios es la d2.
+En este caso Ana elegirá **Curadita** como su seguro médico
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
