@@ -1,0 +1,93 @@
+---
+title: "Problema5"
+author: "Laura Mayorgas del Castillo"
+date: "2024-09-26"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("teoriadecision_funciones_incertidumbre.R")
+```
+
+## PROBLEMA 5
+
+Rosa y Manolo están tratando de decidir dónde van a ir a cenar esta noche con unos amigos, y
+no acaban de ponerse de acuerdo, así que a ver si usted les ayuda. Tienen las siguientes opciones:
+
+• El restaurante *“La música loca”*, donde pagando 60 euros cada uno pueden comer lo que
+quieran, tienen barra libre y música para bailar hasta altas horas de la madrugada si lo desean.
+Si estuviesen hasta muy tarde, volverían en taxi, lo que les costaría a los dos 5 euros y en otro
+caso volverían andando.
+
+• El restaurante *“El Baratito”* les ofrece sólo la posibilidad de comer, a un precio bastante
+económico, 30 euros cada uno, pero allí no pueden bailar ni tomar copas. Además, ese
+restaurante está muy lejos de la zona de marcha de su ciudad. Eso les obligaría, si les
+apeteciese, a coger un taxi hacia la zona de copas, lo que les costaría a los dos 6 euros, y a
+gastarse allí cada uno 10 euros en la entrada de una discoteca y otros 30 euros en copas cada
+uno, más el taxi de vuelta que supondría 10 euros a los dos. Si no les apeteciese ir de copas,
+se irían a casa dando un paseo.
+
+• La última posibilidad consiste en cenar en un *restaurante al lado de su casa*, donde la cena
+cuesta a cada uno 40 euros. Si quisiesen tomar copas y bailar se gastarían 25 euros más cada
+uno.
+¿Qué les recomienda usted que hagan, si su objetivo es minimizar los costes?
+
+**Desglose de los datos:**
+
+- Decisor: Rosa y Manolo
+- Estados de la naturaleza (2):
+
+        e1: Cenar, copas y taxi 
+        e2: Comer, no copas y volver andando
+        
+- Alternativas(3): 
+
+        "La música loca": 60€/pp + 5€ de taxi
+        
+        "El Baratito": 30€/pp + 6€ de taxi + 40€/pp discoteca+10€ taxi vuelta
+        
+        "Junto casa": 40€/pp + 25€/pp discoteca 
+\newpage    
+
+**Resolución del problema:**
+```{r}
+# Calcular los valores de la matriz
+
+## Precios en "La música loca"
+m11= 60*2+5 # Taxi
+m12= 60*2 #Andando
+
+## Precios en "el Baratito"
+m21= 30*2+6+40*2+10
+m22= 30*2
+
+## Precios en "JUnto a casa"
+m31= 40*2
+m32=40*2+25*2
+```
+Una vez calculado los valores para cada una de las alternativas en los 2 posibles estados, aplicamos los criterios. 
+
+```{r}
+tb05= crea.tablaX(c(m11,m12,
+                    m21,m22,
+                    m31,m32),numalternativas = 3,numestados = 2)
+knitr::kable(tb05)
+
+sol5=criterio.Todos(tb05,favorable = F)
+knitr::kable(sol5)
+```
+
+En definitiva podemos ver que la alternativa más repetida por los distintos criterios es la d3.
+En este caso Rosa y manolo elegirán **Bar junto a casa** para ir a cenar.
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
